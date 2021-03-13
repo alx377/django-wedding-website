@@ -22,7 +22,7 @@ class Party(models.Model):
     A party consists of one or more guests.
     """
     name = models.TextField()
-    type = models.CharField(max_length=10, choices=ALLOWED_TYPES)
+    # type = models.CharField(max_length=10, choices=ALLOWED_TYPES)
     category = models.CharField(max_length=20, null=True, blank=True)
     save_the_date_sent = models.DateTimeField(null=True, blank=True, default=None)
     save_the_date_opened = models.DateTimeField(null=True, blank=True, default=None)
@@ -30,7 +30,7 @@ class Party(models.Model):
     invitation_sent = models.DateTimeField(null=True, blank=True, default=None)
     invitation_opened = models.DateTimeField(null=True, blank=True, default=None)
     is_invited = models.BooleanField(default=False)
-    rehearsal_dinner = models.BooleanField(default=False)
+    is_invited_to_church = models.BooleanField(default=False)
     is_attending = models.NullBooleanField(default=None)
     comments = models.TextField(null=True, blank=True)
 
@@ -43,7 +43,7 @@ class Party(models.Model):
 
     @property
     def ordered_guests(self):
-        return self.guest_set.order_by('is_child', 'pk')
+        return self.guest_set.order_by('pk')
 
     @property
     def any_guests_attending(self):
@@ -53,13 +53,6 @@ class Party(models.Model):
     def guest_emails(self):
         return list(filter(None, self.guest_set.values_list('email', flat=True)))
 
-
-MEALS = [
-    ('beef', 'cow'),
-    ('fish', 'fish'),
-    ('hen', 'hen'),
-    ('vegetarian', 'vegetable'),
-]
 
 
 class Guest(models.Model):
@@ -71,8 +64,7 @@ class Guest(models.Model):
     last_name = models.TextField(null=True, blank=True)
     email = models.TextField(null=True, blank=True)
     is_attending = models.NullBooleanField(default=None)
-    meal = models.CharField(max_length=20, choices=MEALS, null=True, blank=True)
-    is_child = models.BooleanField(default=False)
+    diet = models.CharField(max_length=255, null=True, blank=True)
 
     @property
     def name(self):

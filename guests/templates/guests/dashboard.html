@@ -42,19 +42,19 @@
                 </table>
             </div>
             <div class="col-lg-6">
-                <h1>Meal choices</h1>
+                <h1>diet choices</h1>
                 <table class="table">
                     <thead>
                         <tr>
-                            {% for meal in meal_breakdown %}
-                            <th>{{ meal.meal }}</th>
+                            {% for diet in diet_breakdown %}
+                            <th>{{ diet.diet }}</th>
                             {% endfor %}
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            {% for meal in meal_breakdown %}
-                            <td>{{ meal.count }}</td>
+                            {% for diet in diet_breakdown %}
+                            <td>{{ diet.count }}</td>
                             {% endfor %}
                         </tr>
                     </tbody>
@@ -76,8 +76,8 @@
             </div>
         </div>
         <div class="col-lg-6">
-                <h1>Attending Guests Without Meals</h1>
-                {% with guest_list=guests_without_meals %}
+                <h1>Attending Guests Without diets</h1>
+                {% with guest_list=guests_without_diets %}
                     {% include "guests/partials/guest_list.html" %}
                 {% endwith %}
             </div>

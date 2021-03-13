@@ -6,7 +6,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.urls import reverse
 from django.http import Http404
 from django.template.loader import render_to_string
-from guests.models import Party, MEALS
+from guests.models import Party
 
 INVITATION_TEMPLATE = 'guests/email_templates/invitation.html'
 
@@ -24,15 +24,14 @@ def guess_party_by_invite_id_or_404(invite_id):
 
 def get_invitation_context(party):
     return {
-        'title': "Lion's Head",
-        'main_image': 'bride-groom.png',
+        'title': "Kutsu hääjuhlaan",
+        'main_image': 'email.png',
         'main_color': '#fff3e8',
         'font_color': '#666666',
-        'page_title': "Cory and Rowena - You're Invited!",
+        'page_title': "Aleksi ja Marika - Olet kutsuttu!",
         'preheader_text': "You are invited!",
         'invitation_id': party.invitation_id,
         'party': party,
-        'meals': MEALS,
     }
 
 

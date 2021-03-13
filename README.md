@@ -49,8 +49,8 @@ There's also a field to track whether the party is invited to the rehearsal dinn
 #### Guest model
 
 The `Guest` model contains all of your individual guests.
-In addition to standard name/email it has fields to represent whether the guest is a child (for kids meals/pricing differences),
-and, after sending invitations, marking whether the guest is attending and what meal they are having.
+In addition to standard name/email it has fields to represent whether the guest is a child (for kids diets/pricing differences),
+and, after sending invitations, marking whether the guest is attending and what diet they are having.
 
 #### Excel import/export
 
@@ -76,12 +76,12 @@ The template is similar to the save-the-date template, however in addition to th
 
 - A built in tracking pixel to know whether someone has opened the email or not
 - Unique invitation URLs for each party with pre-populated guest names ([example](http://rownena-and.coryzue.com/invite/b2ad24ec5dbb4694a36ef4ab616264e0/))
-- Online RSVP system with meal selection and validation
+- Online RSVP system with diet selection and validation
 
 ### Guest dashboard
 
 After your invitations go out you can use the guest dashboard to see how many people have RSVP'd, everyone who still
-has to respond, people who haven't selected a meal, etc.
+has to respond, people who haven't selected a diet, etc.
 It's a great way of tracking your big picture numbers in terms of how many guests to expect.
 
 Just access `/dashboard/` from an account with admin access. Your other guests won't be able to see it.
@@ -91,7 +91,6 @@ Just access `/dashboard/` from an account with admin access. Your other guests w
 ### Other details
 
 You can easily hook up Google analytics by editing the tracking ID in `google-analytics.html`.
-
 
 ## Installation
 
@@ -114,7 +113,7 @@ Searching for the text on a page in the repository is a great way to find where 
 
 ### Sending email
 
-This application uses Django's email framework for sending mail. 
+This application uses Django's email framework for sending mail.
 You need to modify the `EMAIL_HOST`, `EMAIL_PORT` and other associated variables in `settings.py` in order
 to hook it into a real server.
 

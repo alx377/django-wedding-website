@@ -23,14 +23,14 @@ if env.ssh_config_path and os.path.isfile(os.path.expanduser(env.ssh_config_path
 
 env.project = 'bigday'
 env.code_branch = 'master'
-env.sudo_user = 'czue'
+env.sudo_user = 'root'
 
 ENVIRONMENTS = ('production',)
 
 @task
 def _setup_path():
     env.root = posixpath.join(env.home, 'www', env.environment)
-    env.hosts = ['czue.org']
+    env.hosts = ['czue.org']  # TODO CHANGE
     env.log_dir = posixpath.join(env.home, 'www', env.environment, 'log')
     env.code_root = posixpath.join(env.root, 'code_root')
     env.project_media = posixpath.join(env.code_root, 'media')
@@ -40,7 +40,7 @@ def _setup_path():
 
 @task
 def production():
-    env.home = "/home/czue"
+    env.home = "/home/czue"  # TODO CHANGE
     env.environment = 'bigday'
     env.django_port = '9091'
     _setup_path()
