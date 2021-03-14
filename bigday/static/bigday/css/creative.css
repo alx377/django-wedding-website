@@ -45,6 +45,28 @@ h5,
 h6 {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
 }
+.main-header-title {
+  font-family: "Dancing Script";
+}
+
+.welcome-button {
+  background-color: #1612eb;
+}
+
+.party-button {
+  background-color: #1612eb;
+}
+
+.info-button {
+  background-color: #1612eb;
+}
+
+.header-content-inner a {
+  color: #ffffff;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
 
 p {
   margin-bottom: 20px;
@@ -222,7 +244,7 @@ header .header-content .header-content-inner p {
 }
 
 #second-header {
-  background-image: url("../images/chapmans-peak-view.jpg");
+  background-image: url("../images/senjapanorama.jpg");
 }
 
 @media (min-width: 768px) {

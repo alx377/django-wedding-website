@@ -79,7 +79,7 @@ def invitation(request, invite_id):
         party.is_attending = party.any_guests_attending
         party.save()
         return HttpResponseRedirect(reverse('rsvp-confirm', args=[invite_id]))
-    template = 'guests/church_invitation.html' if party.is_invited_to_church else 'guests/invitation.html'
+    template = 'guests/invitation.html'
     return render(request, template_name=template, context={
         'party': party,
     })

@@ -47,7 +47,7 @@
         <tr>
             <td style="padding: 20px 0 0 0; font-size: 24px; line-height: 20px; font-family: Dancing Script, Helvetica, Arial, sans-serif; color: {{ font_color }};"
             class="padding-copy" align="center">
-            Kurkkaa lisää häähumua <a href="www.ripsantala.fi">www.ripsantala.fi</a></td>
+            Kurkkaa lisää  <a href="{% if email_mode %}{{ site_url }}?invite_id={{party.invitation_id}}{% endif %}{% url 'home' %}?invite_id={{party.invitation_id}}">häähumua</a></td>
         </tr>
         <tr>
             <td style="padding: 20px 0 0 0; font-size: 24px; line-height: 20px; font-family: Dancing Script, Helvetica, Arial, sans-serif; color: {{ font_color }};"

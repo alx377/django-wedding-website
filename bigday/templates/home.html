@@ -31,10 +31,7 @@
           <a class="page-scroll" href="#event">Hääjuhla</a>
         </li>
         <li>
-          <a class="page-scroll" href="#niagara">Byarsborg</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#other-stuff">Kaikki muu</a>
+          <a class="page-scroll" href="#info">Info</a>
         </li>
         <li>
           <a class="page-scroll" href="#contact">Yhteystiedot</a>
@@ -49,16 +46,13 @@
 <header id="main-header">
   <div class="header-content">
     <div class="header-content-inner">
-      <h1>ME ei muut</h1>
-      {% comment %}
-      <hr />
-      <h2>It's wedding week!</h2>
-      <a href="#welcome" class="btn btn-info btn-xl page-scroll">Welcome</a>
-      <a href="#event" class="btn btn-primary btn-xl page-scroll">Friday</a>
-      <a href="#saturday-event" class="btn btn-success btn-xl page-scroll"
-        >Saturday</a
+      <h1 class="main-header-title">Aleksin ja Marikan häät</h1>
+      <a href="#welcome" class="btn btn-xl page-scroll welcome-button">❤ Tervetuloa ❤</a>
+      <a href="#event" class="btn btn-xl page-scroll party-button">❤ Hääjuhla ❤</a>
+      <a href="#info" class="btn btn-xl page-scroll info-button"
+        >❤ Juhlapaikka ❤</a
       >
-      {% endcomment %}
+
     </div>
   </div>
 </header>
@@ -66,25 +60,21 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 text-center">
-        <h2 class="section-heading">Welcome!</h2>
+        <h2 class="section-heading">Tervetuloa!</h2>
         <hr />
-        <p>Hello friends and family! It's the week of the wedding!</p>
+        <p>Hei rakkaat ihmiset!</p>
         <p>
-          If you're looking for information about the event, look no further!
-          Please see below for all the details regarding
-          <a href="#event" class="page-scroll">Friday night's welcome party</a>
-          and
-          <a href="#saturday-event" class="page-scroll">Saturday's event</a>.
+          infoa infoa
+          <a href="#event" class="page-scroll">Hääjuhla</a>
+          ja
+          <a href="#sunnuntai" class="page-scroll">Sunnuntai brunssi</a>.
         </p>
         <p>
-          To get added to the wedding whatsapp group first create an account and
-          then send an email to
-          <a href="mailto:{{ support_email }}">{{ support_email }}</a>. Also,
-          the current front-runner for the wedding hashtag (if you're into that
-          sort of thing) is #getlukky.
+          näillä on ollu joku whatsappi ryhmä. Tässä on myös näköjään linkki tohon
+          <a href="mailto:{{ support_email }}">support mailiin</a>. Joku hästägi
         </p>
-        <p>Looking forward to seeing everyone soon!</p>
-        <p class="pull-right">- Cory and Rowena</p>
+        <p>Kohta nähdään!</p>
+        <p class="pull-right">- Aleksi ja Marika</p>
       </div>
     </div>
   </div>
@@ -95,41 +85,41 @@
       <div class="col-lg-4 col-sm-6">
         <a href="#event" class="portfolio-box page-scroll">
           <img
-            src="{% static 'bigday/images/ravine-nav.jpg' %}"
+            src="{% static 'bigday/images/talvi.jpg' %}"
             class="img-responsive"
             alt=""
           />
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
-              <div class="project-name">The Event</div>
+              <div class="project-name">Hääjuhla</div>
             </div>
           </div>
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="#niagara" class="portfolio-box page-scroll">
+        <a href="#info" class="portfolio-box page-scroll">
           <img
-            src="{% static 'bigday/images/prince-of-wales-hotel-nav.jpg' %}"
+            src="{% static 'bigday/images/talvi.jpg' %}"
             class="img-responsive"
             alt=""
           />
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
-              <div class="project-name">Niagara-on-the-Lake</div>
+              <div class="project-name">Juhlapaikka</div>
             </div>
           </div>
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="#story" class="portfolio-box page-scroll">
+        <a href="#proposal" class="portfolio-box page-scroll">
           <img
-            src="{% static 'bigday/images/twelve-apostles-nav.jpg' %}"
+            src="{% static 'bigday/images/talvi.jpg' %}"
             class="img-responsive"
             alt=""
           />
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
-              <div class="project-name">Our Story</div>
+              <div class="project-name">couscous</div>
             </div>
           </div>
         </a>
@@ -138,24 +128,18 @@
   </div>
 </section>
 {% include 'partials/event.html' %}
-<section id="niagara">{% include 'partials/niagara.html' %}</section>
+<section id="info">{% include 'partials/info.html' %}</section>
 {% comment %} {% include 'partials/wedding-party.html' %} {% endcomment %}
-<section id="other-stuff" class="bg-primary">
-  {% include 'partials/misc.html' %}
-</section>
 <section id="gifts">{% include 'partials/gifts.html' %}</section>
-<section id="story" class="bg-dark">
-  {% include 'partials/story.html' %}
-</section>
-{% include 'partials/proposal.html' %} {% include 'partials/save-the-dates.html'
-%}
+
+{% include 'partials/proposal.html' %}
 <section id="contact" class="bg-dark">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 text-center">
-        <h2 class="section-heading">Contact us!</h2>
+        <h2 class="section-heading">Ota yhteyttä!</h2>
         <hr class="primary" />
-        <p>If you have any questions don't hesitate to reach out!</p>
+        <p>Jos sinulla on kysyttävää niin ota ihmeessä yhteyttä!</p>
       </div>
       <div class="col-lg-8 col-lg-offset-2 text-center">
         <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
