@@ -1,0 +1,3 @@
+party_name,first_name,last_name,category,is_invited,is_invited_to_church,is_attending,diet,email,comments
+Testi party,nainen,heikko,,False,True,True,None,,
+Testi party,mies,vahva,,False,True,True,None,,

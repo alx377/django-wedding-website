@@ -25,13 +25,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a class="page-scroll" href="#main-header">Koti</a>
-        </li>
-        <li>
           <a class="page-scroll" href="#event">Hääjuhla</a>
         </li>
         <li>
-          <a class="page-scroll" href="#info">Info</a>
+          <a class="page-scroll" href="#place">Juhlapaikka</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#info">Tietoa</a>
         </li>
         <li>
           <a class="page-scroll" href="#contact">Yhteystiedot</a>
@@ -47,24 +47,43 @@
   <div class="header-content">
     <div class="header-content-inner">
       <h1 class="main-header-title">Aleksin ja Marikan häät</h1>
-      <a href="#welcome" class="btn btn-xl page-scroll welcome-button">❤ Tervetuloa ❤</a>
-      <a href="#event" class="btn btn-xl page-scroll party-button">❤ Hääjuhla ❤</a>
-      <a href="#info" class="btn btn-xl page-scroll info-button"
-        >❤ Juhlapaikka ❤</a
-      >
-
+      <h2 class="main-header-title-2">LA 07.08.2021</h2>
+      <div class="top-btn-container">
+        <a href="#event" class="btn btn-xl page-scroll party-button">♡ Hääjuhla ♡</a>
+        <a href="#place" class="btn btn-xl page-scroll info-button"
+          >♡ Juhlapaikka ♡</a
+        >
+      </div>
     </div>
   </div>
 </header>
-<section class="bg-info" id="welcome">
+<section class="bg-neutral" id="welcome">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 text-center">
         <h2 class="section-heading">Tervetuloa!</h2>
         <hr />
         <p>Hei rakkaat ihmiset!</p>
+        <div id="clockdiv">
+          <div>
+            <span class="days"></span>
+            <div class="smalltext">Days</div>
+          </div>
+          <div>
+            <span class="hours"></span>
+            <div class="smalltext">Hours</div>
+          </div>
+          <div>
+            <span class="minutes"></span>
+            <div class="smalltext">Minutes</div>
+          </div>
+          <div>
+            <span class="seconds"></span>
+            <div class="smalltext">Seconds</div>
+          </div>
+        </div>
         <p>
-          infoa infoa
+          placea placea
           <a href="#event" class="page-scroll">Hääjuhla</a>
           ja
           <a href="#sunnuntai" class="page-scroll">Sunnuntai brunssi</a>.
@@ -85,7 +104,7 @@
       <div class="col-lg-4 col-sm-6">
         <a href="#event" class="portfolio-box page-scroll">
           <img
-            src="{% static 'bigday/images/talvi.jpg' %}"
+            src="{% static 'bigday/images/reel1.png' %}"
             class="img-responsive"
             alt=""
           />
@@ -97,9 +116,9 @@
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="#info" class="portfolio-box page-scroll">
+        <a href="#place" class="portfolio-box page-scroll">
           <img
-            src="{% static 'bigday/images/talvi.jpg' %}"
+            src="{% static 'bigday/images/reel2.png' %}"
             class="img-responsive"
             alt=""
           />
@@ -111,15 +130,15 @@
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="#proposal" class="portfolio-box page-scroll">
+        <a href="#info" class="portfolio-box page-scroll">
           <img
-            src="{% static 'bigday/images/talvi.jpg' %}"
+            src="{% static 'bigday/images/reel3.png' %}"
             class="img-responsive"
             alt=""
           />
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
-              <div class="project-name">couscous</div>
+              <div class="project-name">Tietoa</div>
             </div>
           </div>
         </a>
@@ -128,11 +147,11 @@
   </div>
 </section>
 {% include 'partials/event.html' %}
-<section id="info">{% include 'partials/info.html' %}</section>
+<section class="bg-neutral" id="place">{% include 'partials/place.html' %}</section>
 {% comment %} {% include 'partials/wedding-party.html' %} {% endcomment %}
-<section id="gifts">{% include 'partials/gifts.html' %}</section>
+<section class="bg-info" id="gifts">{% include 'partials/gifts.html' %}</section>
 
-{% include 'partials/proposal.html' %}
+<section class="bg-info" id="info"></section>{% include 'partials/info.html' %}</section>
 <section id="contact" class="bg-dark">
   <div class="container">
     <div class="row">
@@ -156,4 +175,48 @@
 <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
 <!-- Custom Theme JavaScript -->
 <script src="{% static 'creative/js/creative.js' %}"></script>
+<script>
+  function getTimeRemaining(endtime) {
+  const total = Date.parse(endtime) - Date.parse(new Date());
+  const seconds = Math.floor((total / 1000) % 60);
+  const minutes = Math.floor((total / 1000 / 60) % 60);
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+  return {
+    total,
+    days,
+    hours,
+    minutes,
+    seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  const clock = document.getElementById(id);
+  const daysSpan = clock.querySelector('.days');
+  const hoursSpan = clock.querySelector('.hours');
+  const minutesSpan = clock.querySelector('.minutes');
+  const secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    const t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  const timeinterval = setInterval(updateClock, 1000);
+}
+
+const deadline = new Date("2021-08-07T16:00");
+initializeClock('clockdiv', deadline);
+</script>
 {% endblock %}

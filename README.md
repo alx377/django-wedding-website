@@ -1,3 +1,16 @@
+## Build and publish production image
+
+- `docker build -t aleksinyyss/wedding:latest .`
+- `docker push aleksinyyss/wedding:latest`
+
+## Prod
+
+- ssh to container
+- if docker-compose.yml file is not there copy it from this repo
+- `docker-compose down`
+- `docker-compose up -d`
+- remember to have SECRET_KEY env variable at server
+
 # A Django Wedding Website and Invitation + Guest Management System
 
 Live site examples:

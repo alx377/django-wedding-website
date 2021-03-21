@@ -23,9 +23,11 @@
       <h2>Aleksin ja Marikan häät</h2>
       <p class="lead">
         Sanomme toisillemme tahdon <br />
-        7.8.2021 klo 15.00<br />
-        Svartbäckin saaristokirkossa (Sipoo)<br />
-        Vihkitilaisuuden jälkeen jatkamme hääjuhlaa Byarsborgin juhlatilalla (Storuddintie 20, Sipoo).
+        Lauantaina 7.8.2021 klo 15.00<br />
+        Svartbäckin saaristokirkossa <br />
+        (Svartbäckintie 29, Sipoo)</br></br>
+        Vihkitilaisuuden jälkeen jatkamme hääjuhlaa Byarsborgin juhlatilalla</br>
+        (Storuddintie 20, Sipoo)
       </p>
     </div>
     {% else %}
@@ -33,7 +35,7 @@
       <h2>Aleksin ja Marikan häät</h2>
       <p class="lead">
         Meillä on ilo kutsua teidät osaksi suurta päiväämme<br />
-        lauantaina 7.8.2021 klo 16:00 Byarsborgin juhlatilalle.
+        Lauantaina 7.8.2021 klo 16:00 Byarsborgin juhlatilalle.
       </p>
     </div>
     {%endif%}
@@ -48,11 +50,12 @@
       <h2 id="rsvp-header" class="text-center">RSVP</h2>
       <div class="clearfix"></div>
       {% csrf_token %} {% for guest in party.ordered_guests.all %}
-      <div class="form-group">
+      <div class="form-group col-sm-12">
         {% with 'attending-'|add:guest.unique_id as attending_label %}
         <label for="{{ attending_label }}" class="col-sm-4 control-label"
           >{{ guest.name }}</label
         >
+        <div class="col-sm-8">
         <label class="radio-inline">
           <input
             class="attending-radio"
@@ -68,6 +71,7 @@
         <label class="radio-inline">
           <input class="attending-radio" type="radio" name="{{ attending_label }}" value="no" {% if guest.is_attending == False %}checked="checked"{% endif %} required> ei osallistu
         </label>
+      </div>
         {% endwith %}
       </div>
       {% with 'diet-'|add:guest.unique_id as diet_label %}
@@ -90,7 +94,7 @@
         <input
           type="text"
           name="comments"
-          class="form-control"
+          class="form-control form-control-lg"
           placeholder="Kysymyksiä/kommentteja/onnen toivotuksia?"
         />
       </div>

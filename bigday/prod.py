@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u7!-y4k1c6b44q507nr_l+c^12o7ur++cpzyn!$65g^!gum@h%'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["aleksimarikawedding.party", "localhost", "127.0.0.1", "95.179.153.153"]
 
 
 # Application definition
@@ -83,7 +83,7 @@ DATABASES = {
         "NAME": "wedding",
         "USER": "userpg",
         "PASSWORD": "randompwdkuustoist",
-        "HOST": "localhost" if DEBUG else "database",
+        "HOST": "database",
         "PORT": 5432,
         "OPTIONS": {
             "connect_timeout": 15,
@@ -129,8 +129,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_ROOT = 'static_root'
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (
     os.path.join('bigday', 'static'),
 )
@@ -151,12 +151,7 @@ WEDDING_WEBSITE_URL = 'http://aleksimarikawedding.party'
 WEDDING_CC_LIST = []  # put email addresses here if you want to cc someone on all your invitations
 
 # change to a real email backend in production
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'aleksimarikawedding@gmail.com'
-EMAIL_HOST_PASSWORD = os.getenv("GPWD")
-EMAIL_PORT = 587
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 try:
     from .localsettings import *

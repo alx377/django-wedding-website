@@ -16,12 +16,12 @@ def import_guests(path):
             if first_row:
                 first_row = False
                 continue
-            party_name, first_name, last_name, party_type, category, is_invited, email = row[:8]
+            party_name, first_name, last_name, category, is_invited, is_invited_to_church, email = row[:7]
             if not party_name:
                 print ('skipping row {}'.format(row))
                 continue
             party = Party.objects.get_or_create(name=party_name)[0]
-            party.type = party_type
+            party.is_invited_to_church = _is_true(is_invited_to_church)
             party.category = category
             party.is_invited = _is_true(is_invited)
             if not party.invitation_id:
@@ -38,32 +38,31 @@ def import_guests(path):
 
 def export_guests():
     headers = [
-        'party_name', 'first_name', 'last_name', 'party_type',
-        'category', 'is_invited', 'is_attending',
-        'rehearsal_dinner', 'diet', 'email', 'comments'
+        'party_name', 'first_name', 'last_name',
+        'category', 'is_invited', 'is_invited_to_church',
+        'is_attending', 'diet', 'email', 'comments'
     ]
-    file = io.StringIO()
-    writer = csv.writer(file)
-    writer.writerow(headers)
-    for party in Party.in_default_order():
-        for guest in party.guest_set.all():
-            if guest.is_attending:
+    with open('asd.csv', mode='w') as file:
+        writer = csv.writer(file)
+        writer.writerow(headers)
+        for party in Party.in_default_order():
+            for guest in party.guest_set.all():
+                # if guest.is_attending:
                 writer.writerow([
                     party.name,
                     guest.first_name,
                     guest.last_name,
-                    party.type,
                     party.category,
                     party.is_invited,
+                    party.is_invited_to_church,
                     guest.is_attending,
-                    party.rehearsal_dinner,
                     guest.diet,
                     guest.email,
                     party.comments,
                 ])
-    return file
+        return file
 
 
 def _is_true(value):
     value = value or ''
-    return value.lower() in ('y', 'yes')
+    return value.lower() in ('y', 'yes', 'true')

@@ -5,7 +5,7 @@
 <tr>
     <td style="padding: 20px 0 0 0; font-size: 42px; font-weight: 700; line-height: 20px; font-family: Dancing Script, Helvetica, Arial, sans-serif; color: {{ font_color }};"
     class="padding-copy" align="center">
-        Olet kutsuttu hääjuhlaamme 07.08.2021
+        <p> Olet kutsuttu hääjuhlaamme 07.08.2021</p></br>
     </td>
 </tr>
 {% endblock %}
@@ -14,9 +14,9 @@
     {% with "invitation/images/"|add:main_image as main_static_url %}
     <img src="{% if email_mode %}cid:{{ main_image }}{% else %}{% static main_static_url %}{% endif %}"
          alt="{{ couple }}"
-         style="display: block; padding: 16; color: #666666;"
+         style="display: block; padding: 16; color: #666666; margin: auto;"
          class="img-max" border="0"
-         height="600" width="800">
+         height="500" width="400">
     {% endwith %}
 {% endblock %}
 {% block main_copy %}
@@ -27,7 +27,7 @@
             <tr>
                 <td>
                     <a href="{% if email_mode %}{{ site_url }}{% endif %}{% url 'invitation' invitation_id %}" target="_blank"
-                       style="font-size: 24px; font-family: Fanwood Text, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; background-color: #5f3d31; border-top: 12px solid #5f3d31; border-bottom: 12px solid #5f3d31; border-right: 18px solid #5f3d31; border-left: 18px solid #5f3d31; display: inline-block;">
+                       style="font-size: 24px; font-family: Fanwood Text, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; background-color: #447339; border-top: 12px solid #447339; border-bottom: 12px solid #447339; border-right: 18px solid #447339; border-left: 18px solid #447339; display: inline-block;">
                         Vastaa kutsuun tästä
                     </a>
                 </td>
@@ -47,7 +47,7 @@
         <tr>
             <td style="padding: 20px 0 0 0; font-size: 24px; line-height: 20px; font-family: Dancing Script, Helvetica, Arial, sans-serif; color: {{ font_color }};"
             class="padding-copy" align="center">
-            Kurkkaa lisää  <a href="{% if email_mode %}{{ site_url }}?invite_id={{party.invitation_id}}{% endif %}{% url 'home' %}?invite_id={{party.invitation_id}}">häähumua</a></td>
+            <a href="{% if email_mode %}{{ site_url }}?invite_id={{party.invitation_id}}{% else %}{% url 'home' %}?invite_id={{party.invitation_id}}{% endif %}">Tästä</a> pääset hääsivuillemme, jossa on tarkempaa tietoa hääjuhlasta!</td>
         </tr>
         <tr>
             <td style="padding: 20px 0 0 0; font-size: 24px; line-height: 20px; font-family: Dancing Script, Helvetica, Arial, sans-serif; color: {{ font_color }};"
@@ -58,8 +58,5 @@
     </table>
 {% endblock %}
 {% block footer_content %}
-Vastaa <a href="{% if email_mode %}{{ site_url }}{% endif %}{% url 'invitation' invitation_id %}">kutsuun </a> verkkosivulla kiitos.<br>
-    {% if email_mode %}
-        <p><a href="{{ site_url }}">{{ site_url }}</a></p>
-    {% endif %}
+Vastaathan kutsuun verkkosivulla kiitos.<br>
 {% endblock %}
