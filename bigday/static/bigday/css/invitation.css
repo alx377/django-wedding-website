@@ -36,8 +36,7 @@
 }
 
 body {
-  background: url("../images/invite-background.jpg") no-repeat center center
-    fixed;
+  background: url("../images/invibg.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

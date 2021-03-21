@@ -17,7 +17,7 @@ body {
 
 hr {
   max-width: 50px;
-  border-color: #f05f40;
+  border-color: #b76e79;
   border-width: 3px;
 }
 
@@ -26,7 +26,7 @@ hr.light {
 }
 
 a {
-  color: #f05f40;
+  color: #a25c63;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
@@ -45,20 +45,54 @@ h5,
 h6 {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
 }
-.main-header-title {
-  font-family: "Dancing Script";
+
+/* Countdown */
+#clockdiv {
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+}
+
+#clockdiv > div {
+  padding: 10px;
+  border-radius: 3px;
+  background: #000080;
+  display: inline-block;
+}
+
+#clockdiv div > span {
+  padding: 15px;
+  border-radius: 3px;
+  background: #2a548a;
+  display: inline-block;
+}
+
+.smalltext {
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+.top-btn-container {
+  margin-top: 24px;
+}
+
+.top-btn-container a {
+  margin: 8px;
 }
 
 .welcome-button {
-  background-color: #1612eb;
+  background-color: #000080;
 }
 
 .party-button {
-  background-color: #1612eb;
+  background-color: #000080;
 }
 
 .info-button {
-  background-color: #1612eb;
+  background-color: #000080;
 }
 
 .header-content-inner a {
@@ -74,18 +108,26 @@ p {
   line-height: 1.5;
 }
 
+.bg-neutral {
+  background-color: #f6f5f5;
+}
+
 .bg-primary {
-  background-color: #f05f40;
+  background-color: #f1f1ec;
 }
 
 .bg-primary a {
-  color: #fff;
+  color: #000;
   font-weight: bold;
+}
+
+.bg-info {
+  background-color: #9ca8ae;
 }
 
 .bg-dark {
   color: #fff;
-  background-color: #222;
+  background-color: #384b53;
 }
 
 .text-faded {
@@ -117,7 +159,7 @@ aside {
   text-transform: uppercase;
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
-  color: #f05f40;
+  color: #b76e79;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -135,12 +177,12 @@ aside {
 
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus:hover {
-  color: #f05f40;
+  color: #b76e79;
 }
 
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
-  color: #f05f40 !important;
+  color: #b76e79 !important;
   background-color: transparent;
 }
 
@@ -181,7 +223,7 @@ aside {
 
   .navbar-default.affix .navbar-header .navbar-brand {
     font-size: 14px;
-    color: #f05f40;
+    color: #b76e79;
   }
 
   .navbar-default.affix .navbar-header .navbar-brand:hover,
@@ -196,7 +238,7 @@ aside {
 
   .navbar-default.affix .nav > li > a:hover,
   .navbar-default.affix .nav > li > a:focus:hover {
-    color: #f05f40;
+    color: #b76e79;
   }
 }
 
@@ -236,11 +278,23 @@ header .header-content .header-content-inner hr {
   margin: 30px auto;
 }
 
-header .header-content .header-content-inner p {
+/* header .header-content .header-content-inner p {
   margin-bottom: 50px;
   font-size: 22px;
   font-weight: 400;
   color: rgba(255, 255, 255);
+} */
+
+.main-header-title {
+  font-family: "Oregano";
+  color: #fff;
+}
+
+.main-header-title-2 {
+  color: #fff;
+  font-family: "Oregano";
+  font-size: "35px";
+  margin-bottom: "20px";
 }
 
 #second-header {
@@ -258,7 +312,7 @@ header .header-content .header-content-inner p {
 
   header .header-content {
     position: absolute;
-    top: 15%;
+    top: 17%;
     padding: 0 50px;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -268,7 +322,7 @@ header .header-content .header-content-inner p {
   header .header-content .header-content-inner {
     margin-right: auto;
     margin-left: auto;
-    max-width: 1000px;
+    max-width: 1170px;
   }
 
   header .header-content .header-content-inner p {
@@ -325,7 +379,7 @@ header .header-content .header-content-inner p {
   text-align: center;
   color: #fff;
   opacity: 0;
-  background: rgba(240, 95, 64, 0.9);
+  background: #b76e79;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
@@ -392,7 +446,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-  color: #f05f40;
+  color: #b76e79;
 }
 
 .no-gutter > [class*="col-"] {
@@ -454,9 +508,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-  border-color: #f05f40;
+  border-color: #b76e79;
   color: #fff;
-  background-color: #f05f40;
+  background-color: #b76e79;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
@@ -497,12 +551,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  border-color: #f05f40;
-  background-color: #f05f40;
+  border-color: #b76e79;
+  background-color: #b76e79;
 }
 
 .btn-primary .badge {
-  color: #f05f40;
+  color: #b76e79;
   background-color: #fff;
 }
 

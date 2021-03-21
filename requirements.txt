@@ -1,5 +1,5 @@
 django>=2.2.2
-Fabric==1.10.2
 psycopg2-binary==2.8.6
 django-extensions
 ipython
+uwsgi

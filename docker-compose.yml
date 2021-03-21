@@ -1,0 +1,30 @@
+version: "2"
+services:
+  # app:
+  #   container_name: app
+  #   image: aleksinyyss/wedding:latest
+  #   command: "python manage.py collectstatic
+  #     && python manage.py migrate
+  #     && uwsgi
+  #     --lazy-apps
+  #     --threads=2
+  #     --processes=1
+  #     --http-socket=0.0.0.0:8000
+  #     --module=bigday.wsgi:application
+  #     --buffer-size=20480
+  #     --static-map=/static=/opt/app/static"
+  #   restart: always
+  #   ports:
+  #     - "80:80"
+
+  database:
+    container_name: pg
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: userpg
+      POSTGRES_PASSWORD: randompwdkuustoist
+      POSTGRES_DB: wedding
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./docker-data/postgres/postgresql:/var/lib/postgresql/data"
