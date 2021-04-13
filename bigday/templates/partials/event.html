@@ -9,59 +9,75 @@
                     <dd>07.08.2021 </dd>
                     <dt>Missä</dt>
                     <dd>
+                        {% if party.is_invited_to_church %}
                         <address>
-                           Byarsborg
-                            <a href="https://goo.gl/maps/ozYtPujJ4HtwUebU7">Storuddintie 20, Sipoo</a>
+                           Vihkiminen Svartbäckin saaristolaiskirkossa:
+                            <a href="https://goo.gl/maps/qxPaofH6uiR1tHTY9">Svartbäckintie 29, 06880 Porvoo</a>
                         </address>
+                        {% endif %}
+                        <address>
+                          Juhlapaikka Sipoon Byarsborgissa:
+                           <a href="https://goo.gl/maps/ozYtPujJ4HtwUebU7">Storuddintie 20, Sipoo</a>
+                       </address>
                     </dd>
-                    <dt>Kuljetus</dt>
-                    <dd>Mitä pitää kertoa kuljetuksesta. Ei tarjota mitään. Suositellaan kimppakyytejä. Koitetaan saada diiliä paikallisen taksifirman kanssa.</dd>
-                    <dt>Parking</dt>
-                    <dd>tarvitaanko?</dd>
                     <dt>Aikataulu</dt>
                     <dd>
                         <table class="table">
                             {% if party.is_invited_to_church %}
                             <tr>
-                                <th class="col-md-3">Vihkimen alkaa kirkossa</th>
+                                <th class="col-md-3">Vihkiminen alkaa</th>
                                 <td>
-                                  aika
+                                  15:00
                                 </td>
                               </tr>
                             {% endif %}
                             <tr>
                                 <th class="col-md-3">Hääjuhla alkaa</th>
                                 <td>
-                                  aika
+                                  16:00
                                 </td>
                               </tr>
                             <tr>
                               <th class="col-md-3">Kahvit</th>
                               <td>
-                                aika
+                                16:30
                               </td>
                             </tr>
                             <tr>
                               <th class="col-md-3">Häätanssi</th>
                               <td>
-                                aika
+                                19:00
                               </td>
                             </tr>
                             <tr>
-                              <th class="col-md-3">family feud</th>
+                              <th class="col-md-3">Ohjelmaa</th>
                               <td>
-                                aika
+                                20:00
                               </td>
                             </tr>
                             <tr>
-                              <th class="col-md-3">iltapalaa</th>
+                              <th class="col-md-3">Iltapalaa</th>
                               <td>
-                                asd
+                                ~22:00
                               </td>
                             </tr>
                           </table>
                     </dd>
                 </dl>
+                <h3 class="section-heading text-center">Menu</h3>
+                <hr class="primary">
+                <div class="text-center">
+                  <p>Saaristolais kalakakku
+                    </br>
+                    Karjalanpiirakka savuporolla ja munavoilla
+                  </br>
+                  Feta quisset
+                </br>
+                  Pikkuleivät
+                </br>
+                  Hääkakkua
+                </br>
+                  Kahvia ja teetä</p></div>
             </div>
         </div>
     </div>
@@ -76,7 +92,7 @@
                     <dt>Mitä</dt>
                     <dd>Rento sunnuntai brunssi</dd>
                     <dt>Milloin</dt>
-                    <dd>08.08.2021 12:30-15:30</dd>
+                    <dd>08.08.2021 12:30 alkaen</dd>
                     <dt>Missä</dt>
                     <dd>
                         <address>
@@ -85,30 +101,14 @@
                             Puhelin: +3581957601
                         </address>
                     </dd>
-                    <dt>Pukukoodi</dt>
-                    <dd>Äärimmäisen rento (Uima-asu jos haluaa brunssin jälkeen kylpylöidä.)
-                    </dd>
                     <dt>Muuta</dt>
                     <dd>
-                      Jos haluatte jatkaa kanssamme vielä häähumuilua seuraavana päivänä, syömme brunssia Haikon kartanossa. Toivotamme teidät tervetulleeksi! Varaathan brunssin suoraan haikon kartanolta.
+                      Jos haluatte jatkaa kanssamme vielä häähumuilua seuraavana päivänä, syömme brunssia Haikon kartanossa. Toivotamme teidät tervetulleeksi!
+                    </br>
+                    Varaathan brunssin suoraan Haikon kartanolta <a href="https://www.haikko.fi/ravintolat/haikon-kartanon-ravintola-tee-poytavaraus">netissä</a> tai soittamalla (+358 19 576 0763). Aloitusaika on 12:30 ja ilmoita varauksen yhteydessä, että olette Nyyssösten seuruetta.
                     </dd>
                 </dl>
             </div>
         </div>
     </div>
-{% comment %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 ">
-                <h2 class="section-heading text-center">Sunday</h2>
-                <hr class="primary">
-                <p>
-                    Cory and Rowena will be headed to Niagara Falls on Sunday.
-                    Anyone who wants to join them is welcome.
-                    Details will be coordinated via Whatsapp.
-                </p>
-            </div>
-        </div>
-    </div>
-{% endcomment %}
 </section>

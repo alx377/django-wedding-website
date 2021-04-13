@@ -59,7 +59,7 @@ h6 {
 #clockdiv > div {
   padding: 10px;
   border-radius: 3px;
-  background: #000080;
+  background: #1e1e7b;
   display: inline-block;
 }
 
@@ -95,6 +95,10 @@ h6 {
   background-color: #000080;
 }
 
+.top-btn-container a:hover {
+  color: #b76e79;
+}
+
 .header-content-inner a {
   color: #ffffff;
   -webkit-transition: all 0.35s;
@@ -113,7 +117,7 @@ p {
 }
 
 .bg-primary {
-  background-color: #f1f1ec;
+  background-color: #f05f40;
 }
 
 .bg-primary a {
@@ -121,13 +125,13 @@ p {
   font-weight: bold;
 }
 
-.bg-info {
+/* .bg-info {
   background-color: #9ca8ae;
-}
+} */
 
 .bg-dark {
   color: #fff;
-  background-color: #384b53;
+  background-color: #222;
 }
 
 .text-faded {
@@ -299,6 +303,16 @@ header .header-content .header-content-inner hr {
 
 #second-header {
   background-image: url("../images/senjapanorama.jpg");
+}
+
+#third-header {
+  background-image: url("../images/saksa.jpg");
+}
+
+@media (min-width: 100px) {
+  header.secondary {
+    min-height: 20%;
+  }
 }
 
 @media (min-width: 768px) {

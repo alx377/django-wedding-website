@@ -18,7 +18,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand page-scroll" href="#page-top"
-        >Meidän häät #henkilövainyyssönen</a
+        >#TeamNyyssönen2021</a
       >
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,7 +31,10 @@
           <a class="page-scroll" href="#place">Juhlapaikka</a>
         </li>
         <li>
-          <a class="page-scroll" href="#info">Tietoa</a>
+          <a class="page-scroll" href="#gifts">Lahjat</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#info">Tärkeää</a>
         </li>
         <li>
           <a class="page-scroll" href="#contact">Yhteystiedot</a>
@@ -64,33 +67,31 @@
         <h2 class="section-heading">Tervetuloa!</h2>
         <hr />
         <p>Hei rakkaat ihmiset!</p>
+        <p>Juhliin vielä aikaa</p>
         <div id="clockdiv">
           <div>
             <span class="days"></span>
-            <div class="smalltext">Days</div>
+            <div class="smalltext">Päivää</div>
           </div>
           <div>
             <span class="hours"></span>
-            <div class="smalltext">Hours</div>
+            <div class="smalltext">Tuntia</div>
           </div>
           <div>
             <span class="minutes"></span>
-            <div class="smalltext">Minutes</div>
+            <div class="smalltext">Minuuttia</div>
           </div>
           <div>
             <span class="seconds"></span>
-            <div class="smalltext">Seconds</div>
+            <div class="smalltext">Sekuntia</div>
           </div>
         </div>
+      </br>
+    </br>
         <p>
-          placea placea
-          <a href="#event" class="page-scroll">Hääjuhla</a>
-          ja
-          <a href="#sunnuntai" class="page-scroll">Sunnuntai brunssi</a>.
-        </p>
-        <p>
-          näillä on ollu joku whatsappi ryhmä. Tässä on myös näköjään linkki tohon
-          <a href="mailto:{{ support_email }}">support mailiin</a>. Joku hästägi
+          Jos sinulla on jo tässä vaiheessa jotain kysyttää niin ota yhteyttä
+          <a href="mailto:{{ support_email }}">tästä</a>.
+          Marika voisit tähän jonkun kivan jutun keksiä! :)
         </p>
         <p>Kohta nähdään!</p>
         <p class="pull-right">- Aleksi ja Marika</p>
@@ -147,11 +148,13 @@
   </div>
 </section>
 {% include 'partials/event.html' %}
+<header id="third-header" class="secondary"></header>
+<h5 class="text-center text-muted">Garmisch-Partenkirchen.</h5>
 <section class="bg-neutral" id="place">{% include 'partials/place.html' %}</section>
-{% comment %} {% include 'partials/wedding-party.html' %} {% endcomment %}
 <section class="bg-info" id="gifts">{% include 'partials/gifts.html' %}</section>
-
-<section class="bg-info" id="info"></section>{% include 'partials/info.html' %}</section>
+<header id="second-header" class="secondary"></header>
+<h5 class="text-center text-muted">Näkymä Senjalta.</h5>
+<section class="bg-neutral" id="info">{% include 'partials/info.html' %}</section>
 <section id="contact" class="bg-dark">
   <div class="container">
     <div class="row">
