@@ -74,6 +74,10 @@ body {
   opacity: 1;
 }
 
+/* .carousel-inner {
+  min-height: 500px;
+} */
+
 .carousel-inner img {
   margin: auto;
 }

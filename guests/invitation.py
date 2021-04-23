@@ -7,7 +7,8 @@ from django.urls import reverse
 from django.http import Http404
 from django.template.loader import render_to_string
 from guests.models import Guest, Party
-import pywhatkit
+if settings.DEBUG:
+    import pywhatkit
 
 INVITATION_TEMPLATE = 'guests/email_templates/invitation.html'
 
@@ -79,6 +80,8 @@ def send_invitation_email(party, test_only=False, recipients=None):
 
 
 def send_invitation_whatsapp(party: Party):
+    if not settings.DEBUG:
+        return
     guest: Guest
     print(party)
     for guest in party.guest_set.all():
