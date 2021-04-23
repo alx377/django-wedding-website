@@ -23,11 +23,20 @@ class Party(models.Model):
     """
     name = models.TextField()
     category = models.CharField(max_length=20, null=True, blank=True)
-    save_the_date_sent = models.DateTimeField(null=True, blank=True, default=None)
-    save_the_date_opened = models.DateTimeField(null=True, blank=True, default=None)
-    invitation_id = models.CharField(max_length=32, db_index=True, default=_random_uuid, unique=True)
+    save_the_date_sent = models.DateTimeField(null=True,
+                                              blank=True,
+                                              default=None)
+    save_the_date_opened = models.DateTimeField(null=True,
+                                                blank=True,
+                                                default=None)
+    invitation_id = models.CharField(max_length=32,
+                                     db_index=True,
+                                     default=_random_uuid,
+                                     unique=True)
     invitation_sent = models.DateTimeField(null=True, blank=True, default=None)
-    invitation_opened = models.DateTimeField(null=True, blank=True, default=None)
+    invitation_opened = models.DateTimeField(null=True,
+                                             blank=True,
+                                             default=None)
     is_invited = models.BooleanField(default=False)
     is_invited_to_church = models.BooleanField(default=False)
     is_attending = models.NullBooleanField(default=None)
@@ -38,7 +47,8 @@ class Party(models.Model):
 
     @classmethod
     def in_default_order(cls):
-        return cls.objects.order_by('category', '-is_invited', '-is_invited_to_church', 'name')
+        return cls.objects.order_by('category', '-is_invited',
+                                    '-is_invited_to_church', 'name')
 
     @property
     def ordered_guests(self):
@@ -50,20 +60,27 @@ class Party(models.Model):
 
     @property
     def guest_emails(self):
-        return list(filter(None, self.guest_set.values_list('email', flat=True)))
-
+        return list(
+            filter(None, self.guest_set.values_list('email', flat=True)))
 
 
 class Guest(models.Model):
     """
     A single guest
     """
+    INVITER_CHOICES = (("aleksi", "aleksi"), ("marika", "marika"))
     party = models.ForeignKey('Party', on_delete=models.CASCADE)
     first_name = models.TextField()
     last_name = models.TextField(null=True, blank=True)
     email = models.TextField(null=True, blank=True)
     is_attending = models.NullBooleanField(default=None)
     diet = models.CharField(max_length=255, null=True, blank=True)
+    invitation_sent = models.DateTimeField(null=True, blank=True, default=None)
+    phone_number = models.CharField(max_length=255, null=True, blank=True)
+    whatsapp_inviter = models.CharField(max_length=255,
+                                        choices=INVITER_CHOICES,
+                                        null=True,
+                                        blank=True)
 
     @property
     def name(self):

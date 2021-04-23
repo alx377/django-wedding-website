@@ -16,9 +16,11 @@ def import_guests(path):
             if first_row:
                 first_row = False
                 continue
-            party_name, first_name, last_name, category, is_invited, is_invited_to_church, email = row[:7]
+            # yapf: disable
+            party_name, first_name, last_name, category, is_invited, is_invited_to_church, email, phone_number, whatsapp_inviter = row[:9]
+            # yapf: enable
             if not party_name:
-                print ('skipping row {}'.format(row))
+                print('skipping row {}'.format(row))
                 continue
             party = Party.objects.get_or_create(name=party_name)[0]
             party.is_invited_to_church = _is_true(is_invited_to_church)
@@ -28,19 +30,29 @@ def import_guests(path):
                 party.invitation_id = uuid.uuid4().hex
             party.save()
             if email:
-                guest, created = Guest.objects.get_or_create(party=party, email=email)
+                guest, created = Guest.objects.get_or_create(party=party,
+                                                             email=email)
+                guest.first_name = first_name
+                guest.last_name = last_name
+            if phone_number:
+                guest, created = Guest.objects.get_or_create(
+                    party=party,
+                    phone_number=phone_number,
+                    whatsapp_inviter=whatsapp_inviter)
                 guest.first_name = first_name
                 guest.last_name = last_name
             else:
-                guest = Guest.objects.get_or_create(party=party, first_name=first_name, last_name=last_name)[0]
+                guest = Guest.objects.get_or_create(party=party,
+                                                    first_name=first_name,
+                                                    last_name=last_name)[0]
             guest.save()
 
 
 def export_guests():
     headers = [
-        'party_name', 'first_name', 'last_name',
-        'category', 'is_invited', 'is_invited_to_church',
-        'is_attending', 'diet', 'email', 'comments'
+        'party_name', 'first_name', 'last_name', 'category', 'is_invited',
+        'is_invited_to_church', 'is_attending', 'diet', 'email',
+        'phone_number', 'whatsapp_inviter', 'comments'
     ]
     with open('asd.csv', mode='w') as file:
         writer = csv.writer(file)
@@ -58,6 +70,8 @@ def export_guests():
                     guest.is_attending,
                     guest.diet,
                     guest.email,
+                    guest.phone_number,
+                    guest.whatsapp_inviter,
                     party.comments,
                 ])
         return file
