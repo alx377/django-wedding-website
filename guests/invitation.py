@@ -13,14 +13,13 @@ if settings.DEBUG:
 INVITATION_TEMPLATE = 'guests/email_templates/invitation.html'
 
 
-def guess_party_by_invite_id_or_404(invite_id):
+def guess_party_by_invite_id_or_404(value):
     try:
-        return Party.objects.get(invitation_id=invite_id)
+        return Party.objects.get(invitation_id=value)
     except Party.DoesNotExist:
-        if settings.DEBUG:
-            # in debug mode allow access by ID
-            return Party.objects.get(id=int(invite_id))
-        else:
+        try:
+            return Party.objects.get(name=value)
+        except Party.DoesNotExist:
             raise Http404()
 
 

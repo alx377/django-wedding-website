@@ -18,7 +18,7 @@
                 Jos sinulla on kysyttävää, voit olla yhteydessä häiden järjestäjiin lähettämällä <a href="mailto:{{ support_email }}">sähköpostia</a>.
             </p>
             <p>
-                Katso tarkemmat tiedot juhlasta <a href="{% url 'home' %}?invite_id={{party.invitation_id}}">hääsivultamme</a>.
+                Katso tarkemmat tiedot juhlasta <a href="{% url 'home' %}?name={{party.name}}">hääsivultamme</a>.
             </p>
         {% else %}
             <p>
@@ -28,7 +28,7 @@
                 Nähdään jossain muualle joku toinen kerta.
             </p>
             <p>
-                Checkkaa kuitenkin <a href="{% url 'home' %}?invite_id={{party.invitation_id}}">hääsivusto</a>
+                Checkkaa kuitenkin <a href="{% url 'home' %}?name={{party.name}}">hääsivusto</a>
             </p>
         {% endif %}
         <p>

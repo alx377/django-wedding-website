@@ -47,7 +47,7 @@
         <tr>
             <td style="padding: 20px 0 0 0; font-size: 24px; line-height: 20px; font-family: Dancing Script, Helvetica, Arial, sans-serif; color: {{ font_color }};"
             class="padding-copy" align="center">
-            <a href="{% if email_mode %}{{ site_url }}?invite_id={{party.invitation_id}}{% else %}{% url 'home' %}?invite_id={{party.invitation_id}}{% endif %}">Tästä</a> pääset hääsivuillemme, jossa on tarkempaa tietoa hääjuhlasta!</td>
+            <a href="{% if email_mode %}{{ site_url }}?name={{party.name}}{% else %}{% url 'home' %}?name={{party.name}}{% endif %}">Tästä</a> pääset hääsivuillemme, jossa on tarkempaa tietoa hääjuhlasta!</td>
         </tr>
         <tr>
             <td style="padding: 20px 0 0 0; font-size: 24px; line-height: 20px; font-family: Dancing Script, Helvetica, Arial, sans-serif; color: {{ font_color }};"

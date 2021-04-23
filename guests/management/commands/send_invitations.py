@@ -7,24 +7,9 @@ from guests.invitation import send_all_invitations
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
-        # parser.add_argument('--send',
-        #                     action='store_true',
-        #                     dest='send',
-        #                     default=False,
-        #                     help="Actually send emails")
-        # parser.add_argument('--mark-sent',
-        #                     action='store_true',
-        #                     dest='mark_sent',
-        #                     default=False,
-        #                     help="Mark as sent")
         parser.add_argument('--sender',
                             type=str,
                             help="Who is sending invitation")
-        # parser.add_argument('--reset',
-        #                     action='store_true',
-        #                     dest='reset',
-        #                     default=False,
-        #                     help="Reset sent flags")
 
     def handle(self, *args, **options):
         # if options['reset']:

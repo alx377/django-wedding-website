@@ -60,8 +60,8 @@ def dashboard(request):
     })
 
 
-def invitation(request, invite_id):
-    party = guess_party_by_invite_id_or_404(invite_id)
+def invitation(request, party_name):
+    party = guess_party_by_invite_id_or_404(party_name)
     if party.invitation_opened is None:
         # update if this is the first time the invitation was opened
         party.invitation_opened = datetime.utcnow()
@@ -78,7 +78,7 @@ def invitation(request, invite_id):
             party.comments = comments if not party.comments else '{}; {}'.format(party.comments, comments)
         party.is_attending = party.any_guests_attending
         party.save()
-        return HttpResponseRedirect(reverse('rsvp-confirm', args=[invite_id]))
+        return HttpResponseRedirect(reverse('rsvp-confirm', args=[party_name]))
     template = 'guests/invitation.html'
     return render(request, template_name=template, context={
         'party': party,
@@ -109,8 +109,8 @@ def _parse_invite_params(params):
         yield InviteResponse(pk, response['attending'], response.get('diet', None))
 
 
-def rsvp_confirm(request, invite_id=None):
-    party = guess_party_by_invite_id_or_404(invite_id)
+def rsvp_confirm(request, party_name=None):
+    party = guess_party_by_invite_id_or_404(party_name)
     return render(request, template_name='guests/rsvp_confirmation.html', context={
         'party': party,
         'support_email': settings.DEFAULT_WEDDING_REPLY_EMAIL,

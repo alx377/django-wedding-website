@@ -6,8 +6,8 @@ from guests.models import Party
 
 
 def home(request):
-    print(request.GET.get("invite_id"))
-    party = guess_party_by_invite_id_or_404(request.GET.get("invite_id", "asd"))
+    print(request.GET.get("name"))
+    party = guess_party_by_invite_id_or_404(request.GET.get("name", "asd"))
     return render(request, 'home.html', context={
         'party': party,
         'support_email': settings.DEFAULT_WEDDING_REPLY_EMAIL,
