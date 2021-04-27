@@ -89,13 +89,13 @@ def send_invitation_whatsapp(party: Party):
         if guest.invitation_sent:
             continue
         if guest.phone_number:
-            print('phone_number: ', guest.phone_number)
             now = datetime.now()
             message = f"""
 Olet kutsuttu hääjuhlaamme 07.08.2021!
 vp. 31.5.2021
-Vastaa kutsuun osoitteessa: {settings.WEDDING_WEBSITE_URL}/invite/{party.invitation_id}
-Lisä informaatioa osoitteessa {settings.WEDDING_WEBSITE_URL}?invite_id={party.invitation_id}
+Vastaa kutsuun osoitteessa: {settings.WEDDING_WEBSITE_URL}/invite/{party.name}
+Lisäinformaatioa osoitteessa {settings.WEDDING_WEBSITE_URL}?invite_id={party.name}
+Vastaathan myös tähän viestiin että viesti tuli varmasti perille ja oikeaan numeroon.
 Ystävällisin terveisin: Aleksi ja Marika!
             """
             pywhatkit.sendwhatmsg(guest.phone_number, message, now.hour,
@@ -114,7 +114,6 @@ def send_all_invitations(test_only, mark_as_sent, sender):
         guest__whatsapp_inviter=sender).exclude(is_attending=False)
     for party in to_send_to:
         succeeded = send_invitation_whatsapp(party)
-        # succeeded = send_invitation_email(party, test_only=test_only)
         if mark_as_sent and succeeded:
             party.invitation_sent = datetime.now()
             party.save()
